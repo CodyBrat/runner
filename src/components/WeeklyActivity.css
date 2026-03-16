@@ -1,5 +1,5 @@
 .weekly-activity {
-  padding: 1.5rem;
+  padding: 2rem;
   display: flex;
   flex-direction: column;
 }
@@ -8,12 +8,21 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
-  margin-bottom: 1.5rem;
+  margin-bottom: 2rem;
+}
+
+.section-title {
+  font-family: var(--font-sport);
+  font-size: 0.85rem;
+  font-weight: 700;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  color: var(--text-muted);
 }
 
 .activity-legend {
   display: flex;
-  gap: 1rem;
+  gap: 1.25rem;
 }
 
 .legend-item {
@@ -21,27 +30,27 @@
   align-items: center;
   gap: 0.5rem;
   font-size: 0.65rem;
-  font-weight: 700;
+  font-weight: 800;
   text-transform: uppercase;
   color: var(--text-muted);
+  letter-spacing: 1px;
 }
 
 .legend-item .dot {
   width: 6px;
   height: 6px;
   border-radius: 50%;
-  background: rgba(255, 255, 255, 0.1);
+  background: rgba(255, 255, 255, 0.15);
 }
 
 .legend-item .dot.active {
   background: var(--accent-primary);
-  box-shadow: 0 0 8px rgba(255, 94, 0, 0.4);
 }
 
 .activity-content {
   flex: 1;
   display: flex;
-  gap: 2rem;
+  gap: 2.5rem;
   min-height: 0;
 }
 
@@ -51,13 +60,13 @@
 }
 
 .mini-stats-list {
-  width: 140px;
+  width: 160px;
   display: flex;
   flex-direction: column;
   justify-content: center;
-  gap: 0.75rem;
-  border-left: 1px solid var(--border-subtle);
-  padding-left: 2rem;
+  gap: 1rem;
+  border-left: 1px solid rgba(255, 255, 255, 0.05);
+  padding-left: 2.5rem;
 }
 
 .mini-stat-item {
@@ -74,16 +83,29 @@
 
 .mini-val {
   font-family: var(--font-sport);
-  font-size: 1rem;
-  font-weight: 700;
+  font-size: 1.2rem;
+  font-weight: 800;
+  font-style: italic;
   color: var(--text-primary);
+  line-height: 1;
+}
+
+.mini-unit {
+  font-size: 0.75rem;
+  font-weight: 700;
+  color: var(--text-secondary);
+  font-style: normal;
+  margin-left: 2px;
 }
 
 .mini-val.rest {
   font-family: var(--font-body);
   font-size: 0.65rem;
-  color: var(--text-muted);
-  background: rgba(255,255,255,0.05);
-  padding: 2px 6px;
+  font-weight: 800;
+  color: #fff;
+  background: rgba(255, 255, 255, 0.08);
+  padding: 3px 8px;
   border-radius: 4px;
+  letter-spacing: 1px;
 }
+

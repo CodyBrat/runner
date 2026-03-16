@@ -23,7 +23,7 @@ const WeeklyActivity = ({ runs }) => {
   return (
     <div className="card weekly-activity glass-card">
       <div className="activity-header">
-        <h3 className="section-title">Weekly Activity</h3>
+        <span className="section-title">Weekly Activity</span>
         <div className="activity-legend">
           <span className="legend-item"><span className="dot active"></span> Active</span>
           <span className="legend-item"><span className="dot"></span> Rest</span>
@@ -33,7 +33,7 @@ const WeeklyActivity = ({ runs }) => {
       <div className="activity-content">
         <div className="chart-container">
           <ResponsiveContainer width="100%" height="100%">
-            <BarChart data={data} margin={{ top: 0, right: 0, left: -25, bottom: 0 }}>
+            <BarChart data={data} margin={{ top: 10, right: 0, left: -25, bottom: 0 }}>
               <XAxis
                 dataKey="name"
                 tick={{ fill: 'var(--text-muted)', fontSize: 11, fontWeight: 700 }}
@@ -42,7 +42,7 @@ const WeeklyActivity = ({ runs }) => {
                 dy={10}
               />
               <YAxis
-                tick={{ fill: 'var(--text-muted)', fontSize: 11 }}
+                tick={{ fill: 'var(--text-muted)', fontSize: 11, fontWeight: 700 }}
                 axisLine={false}
                 tickLine={false}
               />
@@ -52,7 +52,7 @@ const WeeklyActivity = ({ runs }) => {
                 formatter={(value) => [`${value} km`, 'Distance']}
                 itemStyle={{ color: 'var(--accent-primary)', fontWeight: 800, fontFamily: 'var(--font-sport)' }}
               />
-              <Bar dataKey="distance" radius={[6, 6, 0, 0]} barSize={32}>
+              <Bar dataKey="distance" radius={[4, 4, 0, 0]} barSize={26}>
                 {data.map((entry, index) => (
                   <Cell
                     key={`cell-${index}`}
@@ -68,9 +68,13 @@ const WeeklyActivity = ({ runs }) => {
           {runs.map((distance, idx) => (
             <div key={idx} className="mini-stat-item">
               <span className="mini-day">{days[idx]}</span>
-              <span className={`mini-val ${distance === 0 ? 'rest' : ''}`}>
-                {distance === 0 ? 'REST' : `${distance}km`}
-              </span>
+              {distance === 0 ? (
+                <span className="mini-val rest">REST</span>
+              ) : (
+                <span className="mini-val">
+                  {distance}<span className="mini-unit">km</span>
+                </span>
+              )}
             </div>
           ))}
         </div>

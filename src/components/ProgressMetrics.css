@@ -128,10 +128,9 @@
 
 .progress-bar-fill {
   height: 100%;
-  background-color: var(--accent-primary);
-  border-radius: 3px;
+  background: linear-gradient(90deg, var(--accent-primary) 0%, #ff8c32 100%);
+  border-radius: 6px;
   transition: width 0.7s ease;
-  box-shadow: 0 0 10px rgba(255, 94, 0, 0.3);
 }
 
 
@@ -195,7 +194,6 @@
 .milestone-dot.reached .dot-circle {
   background: var(--accent-primary);
   border-color: var(--accent-primary);
-  box-shadow: 0 0 8px rgba(255, 94, 0, 0.4);
 }
 
 .dot-label {
