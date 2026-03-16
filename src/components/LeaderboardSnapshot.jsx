@@ -2,9 +2,9 @@ import React from 'react';
 import './LeaderboardSnapshot.css';
 
 const LeaderboardSnapshot = ({ data }) => {
-    return (
-        <div className="card leaderboard glass-card">
-            <div className="leaderboard-header">
+  return (
+    <div className="card leaderboard vibrant-card">
+      <div className="leaderboard-header">
                 <h3 className="section-title">Global Leaderboard</h3>
 
                 <div className="tabs">
@@ -15,7 +15,8 @@ const LeaderboardSnapshot = ({ data }) => {
 
             <div className="rank-container">
                 <div className="rank-badge">
-                    <span className="rank-hash">#</span>{data.rank}
+                    <span className="rank-hash">#</span>
+                    <span className="rank-number">{data.rank}</span>
                 </div>
                 <p className="rank-label">Your Current Position</p>
             </div>

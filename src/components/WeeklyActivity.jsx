@@ -5,70 +5,78 @@ import './WeeklyActivity.css';
 const days = ['Mon', 'Tue', 'Wed', 'Thu', 'Fri'];
 
 const WeeklyActivity = ({ runs }) => {
-    const data = runs.map((distance, index) => ({
-        name: days[index],
-        distance: distance,
-    }));
+  const data = runs.map((distance, index) => ({
+    name: days[index],
+    distance: distance,
+  }));
 
-    const customTooltipStyle = {
-        backgroundColor: 'var(--bg-main)',
-        border: '1px solid var(--border-subtle)',
-        borderRadius: '4px',
-        color: 'var(--text-primary)',
-        padding: '8px 12px',
-        fontSize: '0.85rem'
-    };
+  const customTooltipStyle = {
+    backgroundColor: '#1c1f26',
+    border: '1px solid rgba(255,255,255,0.1)',
+    borderRadius: '12px',
+    color: '#fff',
+    padding: '8px 12px',
+    fontSize: '0.8rem',
+    boxShadow: '0 10px 20px rgba(0,0,0,0.3)'
+  };
 
-    return (
-        <div className="card weekly-activity glass-card">
-            <h3 className="section-title">Weekly Activity</h3>
-
-            <div className="chart-wrapper">
-                <ResponsiveContainer width="100%" height={240}>
-                    <BarChart data={data} margin={{ top: 10, right: 0, left: -20, bottom: 0 }}>
-                        <XAxis
-                            dataKey="name"
-                            tick={{ fill: 'var(--text-secondary)', fontSize: 12, fontWeight: 500 }}
-                            axisLine={false}
-                            tickLine={false}
-                            dy={10}
-                        />
-                        <YAxis
-                            tick={{ fill: 'var(--text-muted)', fontSize: 12 }}
-                            axisLine={false}
-                            tickLine={false}
-                            dx={-10}
-                        />
-                        <Tooltip
-                            cursor={{ fill: 'var(--bg-main)' }}
-                            contentStyle={customTooltipStyle}
-                            formatter={(value) => [`${value} km`, 'Distance']}
-                            itemStyle={{ color: 'var(--accent-primary)', fontWeight: 600 }}
-                        />
-                        <Bar dataKey="distance" radius={4}>
-                            {data.map((entry, index) => (
-                                <Cell
-                                    key={`cell-${index}`}
-                                    fill={entry.distance === 0 ? 'var(--border-subtle)' : 'var(--accent-primary)'}
-                                />
-                            ))}
-                        </Bar>
-                    </BarChart>
-                </ResponsiveContainer>
-            </div>
-
-            <div className="activity-list">
-                {runs.map((distance, idx) => (
-                    <div key={idx} className="activity-item">
-                        <div className="day-name">{days[idx]}</div>
-                        <div className="day-val">
-                            {distance === 0 ? <span className="rest-tag">Rest</span> : `${distance} km`}
-                        </div>
-                    </div>
-                ))}
-            </div>
+  return (
+    <div className="card weekly-activity glass-card">
+      <div className="activity-header">
+        <h3 className="section-title">Weekly Activity</h3>
+        <div className="activity-legend">
+          <span className="legend-item"><span className="dot active"></span> Active</span>
+          <span className="legend-item"><span className="dot"></span> Rest</span>
         </div>
-    );
+      </div>
+
+      <div className="activity-content">
+        <div className="chart-container">
+          <ResponsiveContainer width="100%" height="100%">
+            <BarChart data={data} margin={{ top: 0, right: 0, left: -25, bottom: 0 }}>
+              <XAxis
+                dataKey="name"
+                tick={{ fill: 'var(--text-muted)', fontSize: 11, fontWeight: 700 }}
+                axisLine={false}
+                tickLine={false}
+                dy={10}
+              />
+              <YAxis
+                tick={{ fill: 'var(--text-muted)', fontSize: 11 }}
+                axisLine={false}
+                tickLine={false}
+              />
+              <Tooltip
+                cursor={{ fill: 'rgba(255,255,255,0.03)', radius: [8, 8, 0, 0] }}
+                contentStyle={customTooltipStyle}
+                formatter={(value) => [`${value} km`, 'Distance']}
+                itemStyle={{ color: 'var(--accent-primary)', fontWeight: 800, fontFamily: 'var(--font-sport)' }}
+              />
+              <Bar dataKey="distance" radius={[6, 6, 0, 0]} barSize={32}>
+                {data.map((entry, index) => (
+                  <Cell
+                    key={`cell-${index}`}
+                    fill={entry.distance === 0 ? 'rgba(255,255,255,0.05)' : 'var(--accent-primary)'}
+                  />
+                ))}
+              </Bar>
+            </BarChart>
+          </ResponsiveContainer>
+        </div>
+
+        <div className="mini-stats-list">
+          {runs.map((distance, idx) => (
+            <div key={idx} className="mini-stat-item">
+              <span className="mini-day">{days[idx]}</span>
+              <span className={`mini-val ${distance === 0 ? 'rest' : ''}`}>
+                {distance === 0 ? 'REST' : `${distance}km`}
+              </span>
+            </div>
+          ))}
+        </div>
+      </div>
+    </div>
+  );
 };
 
 export default WeeklyActivity;

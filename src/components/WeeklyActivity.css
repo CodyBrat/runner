@@ -1,60 +1,89 @@
 .weekly-activity {
-  padding: 2rem;
-}
-
-.section-title {
-  font-family: var(--font-sport);
-  font-size: 1.1rem;
-  text-transform: uppercase;
-  letter-spacing: 1px;
-  color: var(--text-muted);
-  margin-bottom: 2rem;
-  font-weight: 700;
-}
-
-.chart-wrapper {
-  margin-bottom: 2rem;
-  background-color: var(--bg-main);
-  padding: 1.5rem 1.5rem 0.5rem 0.5rem;
-  border-radius: 6px;
-  border: 1px solid var(--border-subtle);
-}
-
-.activity-list {
+  padding: 1.5rem;
   display: flex;
   flex-direction: column;
 }
 
-.activity-item {
+.activity-header {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 0.75rem 1rem;
-  border-bottom: 1px solid var(--border-subtle);
+  margin-bottom: 1.5rem;
 }
 
-.activity-item:last-child {
-  border-bottom: none;
+.activity-legend {
+  display: flex;
+  gap: 1rem;
 }
 
-.day-name {
-  color: var(--text-secondary);
-  font-size: 0.95rem;
-  font-weight: 500;
-}
-
-.day-val {
-  font-family: var(--font-sport);
+.legend-item {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-size: 0.65rem;
   font-weight: 700;
-  font-size: 1.25rem;
+  text-transform: uppercase;
+  color: var(--text-muted);
+}
+
+.legend-item .dot {
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.1);
+}
+
+.legend-item .dot.active {
+  background: var(--accent-primary);
+  box-shadow: 0 0 8px rgba(255, 94, 0, 0.4);
+}
+
+.activity-content {
+  flex: 1;
+  display: flex;
+  gap: 2rem;
+  min-height: 0;
+}
+
+.chart-container {
+  flex: 1;
+  height: 100%;
+}
+
+.mini-stats-list {
+  width: 140px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 0.75rem;
+  border-left: 1px solid var(--border-subtle);
+  padding-left: 2rem;
+}
+
+.mini-stat-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.mini-day {
+  font-size: 0.75rem;
+  font-weight: 600;
+  color: var(--text-muted);
+}
+
+.mini-val {
+  font-family: var(--font-sport);
+  font-size: 1rem;
+  font-weight: 700;
   color: var(--text-primary);
 }
 
-.rest-tag {
-  background-color: var(--border-subtle);
+.mini-val.rest {
+  font-family: var(--font-body);
+  font-size: 0.65rem;
   color: var(--text-muted);
-  padding: 0.25rem 0.6rem;
+  background: rgba(255,255,255,0.05);
+  padding: 2px 6px;
   border-radius: 4px;
-  font-size: 0.75rem;
-  text-transform: uppercase;
 }

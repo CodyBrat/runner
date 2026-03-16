@@ -1,16 +1,20 @@
 .layout {
-  min-height: 100vh;
+  height: 100vh;
   display: flex;
   flex-direction: column;
+  overflow: hidden; /* Static app, no scrolling */
+  background-color: var(--bg-main);
 }
 
 .navbar {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  padding: 1.5rem 4rem;
+  padding: 1rem 3rem;
   background-color: var(--bg-card);
   border-bottom: 1px solid var(--border-subtle);
+  flex-shrink: 0;
+  z-index: 100;
 }
 
 .nav-logo {
@@ -19,13 +23,13 @@
 }
 
 .nav-logo img {
-  height: 46px; /* Sized according to image scale */
+  height: 38px;
   width: auto;
 }
 
 .nav-links {
   display: flex;
-  gap: 2.5rem;
+  gap: 2rem;
   align-items: center;
 }
 
@@ -33,11 +37,12 @@
   display: flex;
   align-items: center;
   gap: 0.35rem;
-  font-size: 0.75rem;
-  font-weight: 600;
-  color: #8b92a5;
+  font-size: 0.7rem;
+  font-weight: 700;
+  color: var(--text-muted);
   text-transform: uppercase;
-  letter-spacing: 0.8px;
+  letter-spacing: 1px;
+  transition: color 0.2s;
 }
 
 .nav-links a:hover, .nav-links a.active {
@@ -54,58 +59,103 @@
   background: var(--accent-primary);
   color: #fff;
   border: none;
-  padding: 0.6rem 1.5rem;
-  border-radius: 6px;
-  font-weight: 700;
+  padding: 0.6rem 1.4rem;
+  border-radius: 100px; /* Pill shape for premium feel */
+  font-weight: 800;
   cursor: pointer;
-  font-size: 0.9rem;
-  transition: background-color 0.2s ease;
+  font-size: 0.8rem;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  transition: all 0.2s ease;
+  box-shadow: 0 4px 12px rgba(255, 94, 0, 0.2);
 }
 
 .nav-btn:hover {
   background: var(--accent-primary-hover);
+  transform: translateY(-1px);
 }
 
 .theme-toggle {
   display: flex;
   align-items: center;
   justify-content: center;
-  background: transparent;
-  width: 40px;
-  height: 40px;
-  border-radius: 6px;
+  background: rgba(255, 255, 255, 0.03);
+  width: 38px;
+  height: 38px;
+  border-radius: 50%;
   border: 1px solid var(--border-subtle);
   color: var(--text-primary);
   cursor: pointer;
-  transition: background-color 0.2s;
+  transition: all 0.2s;
 }
 
 .theme-toggle:hover {
-  background: var(--bg-card);
+  background: rgba(255, 255, 255, 0.08);
 }
 
 .main-content {
   flex: 1;
-  padding: 4rem;
-  max-width: 1400px;
-  margin: 0 auto;
-  width: 100%;
+  padding: 1.5rem 3rem 2rem;
+  overflow: hidden;
+  height: calc(100vh - 72px); /* Adjust based on navbar height */
 }
 
-.dashboard-grid {
+.bento-grid {
   display: grid;
-  grid-template-columns: 1fr;
-  gap: 3rem;
+  grid-template-columns: repeat(4, 1fr);
+  grid-template-rows: repeat(2, 1fr);
+  gap: 1.25rem;
+  height: 100%;
 }
 
-.section-left, .section-right {
+.bento-item {
+  position: relative;
   display: flex;
   flex-direction: column;
-  gap: 3rem;
 }
 
-@media (min-width: 900px) {
-  .dashboard-grid {
-    grid-template-columns: 1fr 1fr;
+/* Specific Bento Placements */
+.profile {
+  grid-column: span 1;
+  grid-row: span 1;
+}
+
+.metrics {
+  grid-column: span 2;
+  grid-row: span 1;
+}
+
+.rank {
+  grid-column: span 1;
+  grid-row: span 2;
+}
+
+.activity {
+  grid-column: span 3;
+  grid-row: span 1;
+}
+
+/* Ensure components fill the grid item */
+.bento-item > div {
+  flex: 1;
+  height: 100%;
+  margin: 0 !important; /* Overriding any default outer margins if they exist */
+}
+
+@media (max-width: 1200px) {
+  .bento-grid {
+    grid-template-columns: repeat(2, 1fr);
+    grid-template-rows: auto;
+    overflow-y: auto;
+  }
+  .layout {
+    overflow-y: auto;
+    height: auto;
+  }
+  .main-content {
+    height: auto;
+  }
+  .profile, .metrics, .rank, .activity {
+    grid-column: span 2;
   }
 }
