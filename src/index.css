@@ -1,16 +1,19 @@
 :root {
-  --bg-main: #13151a;
+  --bg-main: #0c0d12;
   --bg-card: #1c1f26;
   --bg-card-hover: #22262f;
   
   --text-primary: #ffffff;
-  --text-secondary: #8b92a5;
-  --text-muted: #5e6473;
+  --text-secondary: #a1a5b5;
+  --text-muted: #646b7a;
   
   --accent-primary: #ff5e00;
   --accent-primary-hover: #e05300;
   
-  --border-subtle: #2d323e;
+  --border-subtle: rgba(255, 255, 255, 0.08);
+  
+  --font-body: 'Inter', -apple-system, sans-serif;
+  --font-sport: 'Barlow Condensed', 'Inter', sans-serif;
 }
 
 * {
@@ -20,11 +23,18 @@
 }
 
 body {
-  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+  font-family: var(--font-body);
   background-color: var(--bg-main);
   background-image: 
-    radial-gradient(ellipse at 50% 10%, rgba(255, 255, 255, 0.03) 0%, transparent 60%),
-    radial-gradient(circle at 10% 90%, rgba(255, 255, 255, 0.02) 0%, transparent 40%);
+    repeating-linear-gradient(
+      -45deg,
+      rgba(255, 255, 255, 0.02),
+      rgba(255, 255, 255, 0.02) 1px,
+      transparent 1px,
+      transparent 10px
+    ),
+    radial-gradient(ellipse at 50% -20%, rgba(255, 255, 255, 0.04) 0%, transparent 70%),
+    radial-gradient(circle at 0% 100%, rgba(255, 94, 0, 0.03) 0%, transparent 50%);
   background-attachment: fixed;
   color: var(--text-primary);
   line-height: 1.5;

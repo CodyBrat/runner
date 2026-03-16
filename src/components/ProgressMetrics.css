@@ -3,12 +3,13 @@
 }
 
 .section-title {
-  font-size: 0.9rem;
+  font-family: var(--font-sport);
+  font-size: 1.1rem;
   text-transform: uppercase;
   letter-spacing: 1px;
   color: var(--text-muted);
   margin-bottom: 2rem;
-  font-weight: 600;
+  font-weight: 700;
 }
 
 .progress-values {
@@ -22,7 +23,8 @@
 }
 
 .value-large {
-  font-size: 3rem;
+  font-family: var(--font-sport);
+  font-size: 4.5rem;
   line-height: 1;
 }
 
@@ -39,7 +41,8 @@
 }
 
 .value-small {
-  font-size: 2rem;
+  font-family: var(--font-sport);
+  font-size: 2.5rem;
   line-height: 1;
   color: var(--text-secondary);
 }
@@ -94,7 +97,8 @@
 }
 
 .stat-value {
-  font-size: 1rem;
+  font-family: var(--font-sport);
+  font-size: 1.5rem;
   font-weight: 700;
   color: var(--text-primary);
 }
