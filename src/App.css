@@ -34,8 +34,14 @@
   gap: 1.5rem;
 }
 
+.left-panel, .right-panel {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
 @media (min-width: 768px) {
   .dashboard-grid {
-    grid-template-columns: repeat(2, 1fr);
+    grid-template-columns: 1fr 1fr;
   }
 }
