@@ -20,7 +20,7 @@ const WeeklyActivity = ({ runs }) => {
     };
 
     return (
-        <div className="card weekly-activity">
+        <div className="card weekly-activity glass-card">
             <h3 className="section-title">Weekly Activity</h3>
 
             <div className="chart-wrapper">

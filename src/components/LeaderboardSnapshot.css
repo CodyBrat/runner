@@ -1,8 +1,5 @@
 .leaderboard {
-  background-color: var(--bg-card);
   padding: 2rem;
-  border-radius: 8px;
-  border: 1px solid var(--border-subtle);
 }
 
 .leaderboard-header {

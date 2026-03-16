@@ -3,7 +3,7 @@ import './LeaderboardSnapshot.css';
 
 const LeaderboardSnapshot = ({ data }) => {
     return (
-        <div className="card leaderboard">
+        <div className="card leaderboard glass-card">
             <div className="leaderboard-header">
                 <h3 className="section-title">Global Leaderboard</h3>
 

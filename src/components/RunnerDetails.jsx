@@ -3,7 +3,7 @@ import './RunnerDetails.css';
 
 const RunnerDetails = ({ data }) => {
     return (
-        <div className="card runner-details">
+        <div className="card runner-details glass-card">
             <div className="runner-header">
                 <h2 className="runner-title">Runner Profile</h2>
             </div>

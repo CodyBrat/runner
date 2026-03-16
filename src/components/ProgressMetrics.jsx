@@ -6,7 +6,7 @@ const ProgressMetrics = ({ data }) => {
     const remaining = Math.max(data.target_distance - data.completed_distance, 0);
 
     return (
-        <div className="card progress-metrics">
+        <div className="card progress-metrics glass-card">
             <h3 className="section-title">Distance Goal</h3>
 
             <div className="progress-values">
