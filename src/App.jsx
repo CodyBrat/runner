@@ -8,22 +8,29 @@ import './App.css';
 
 function App() {
   return (
-    <div className="app-container">
-      <header className="dashboard-header">
-        <h1 className="dashboard-title">Runner Dashboard</h1>
-        <p style={{ color: "var(--text-muted)" }}>India Running League Progress Tracker</p>
-      </header>
+    <div className="layout">
+      <nav className="navbar">
+        <div className="nav-logo">IRL tracker</div>
+        <div className="nav-links">
+          <a href="#" className="active">Dashboard</a>
+          <a href="#">Challenges</a>
+          <a href="#">Community</a>
+        </div>
+        <button className="nav-btn">Join Us</button>
+      </nav>
 
-      <div className="dashboard-grid">
-        <div className="left-panel">
-          <RunnerDetails data={runnerData} />
-          <ProgressMetrics data={runnerData} />
+      <main className="main-content">
+        <div className="dashboard-grid">
+          <div className="section-left">
+            <RunnerDetails data={runnerData} />
+            <ProgressMetrics data={runnerData} />
+          </div>
+          <div className="section-right">
+            <LeaderboardSnapshot data={runnerData} />
+            <WeeklyActivity runs={runnerData.weekly_runs} />
+          </div>
         </div>
-        <div className="right-panel">
-          <WeeklyActivity runs={runnerData.weekly_runs} />
-          <LeaderboardSnapshot data={runnerData} />
-        </div>
-      </div>
+      </main>
     </div>
   );
 }
