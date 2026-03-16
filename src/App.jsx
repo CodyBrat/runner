@@ -31,7 +31,6 @@ function App() {
           <a href="#" className="dropdown">Profile <ChevronDown size={14} /></a>
         </div>
         <div className="nav-actions">
-          <button className="nav-btn">Start Run</button>
           <button className="theme-toggle" onClick={toggleTheme} title="Toggle theme">
             {isDark ? <Sun size={18} /> : <Moon size={18} />}
           </button>

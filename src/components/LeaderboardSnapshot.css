@@ -52,7 +52,6 @@
   overflow: hidden;
 }
 
-/* Subtle background accent for rank */
 .rank-container::before {
   content: '';
   position: absolute;

@@ -80,7 +80,7 @@ const ProgressMetrics = ({ data }) => {
           <span className="stat-label">Remaining</span>
           <span className="stat-value">{remaining} km</span>
         </div>
-        <div className="stat text-right">
+        <div className="stat" style={{ alignItems: 'flex-end' }}>
           <span className="stat-label">Completion</span>
           <span className="stat-value">{percentage.toFixed(0)}%</span>
         </div>
