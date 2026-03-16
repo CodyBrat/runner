@@ -10,7 +10,6 @@ function App() {
       </header>
 
       <div className="dashboard-grid">
-        {/* Components will go here */}
         <div className="component-placeholder">Runner Details</div>
         <div className="component-placeholder">Progress Metrics</div>
         <div className="component-placeholder">Weekly Activity</div>
