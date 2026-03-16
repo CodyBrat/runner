@@ -9,7 +9,7 @@
   align-items: center;
   justify-content: space-between;
   padding: 1.5rem 4rem;
-  background-color: #1a1c23; /* matching the image's slightly different nav background */
+  background-color: var(--bg-card);
   border-bottom: 1px solid var(--border-subtle);
 }
 

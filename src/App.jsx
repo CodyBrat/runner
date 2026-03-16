@@ -1,14 +1,22 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import { runnerData } from './mockData';
 import RunnerDetails from './components/RunnerDetails';
 import ProgressMetrics from './components/ProgressMetrics';
 import WeeklyActivity from './components/WeeklyActivity';
 import LeaderboardSnapshot from './components/LeaderboardSnapshot';
-import { ChevronDown, Moon } from 'lucide-react';
+import { ChevronDown, Moon, Sun } from 'lucide-react';
 import logo from './assets/logo.png';
 import './App.css';
 
 function App() {
+  const [isDark, setIsDark] = useState(true);
+
+  useEffect(() => {
+    document.documentElement.setAttribute('data-theme', isDark ? 'dark' : 'light');
+  }, [isDark]);
+
+  const toggleTheme = () => setIsDark(prev => !prev);
+
   return (
     <div className="layout">
       <nav className="navbar">
@@ -24,8 +32,8 @@ function App() {
         </div>
         <div className="nav-actions">
           <button className="nav-btn">Join Us</button>
-          <button className="theme-toggle">
-            <Moon size={18} />
+          <button className="theme-toggle" onClick={toggleTheme} title="Toggle theme">
+            {isDark ? <Sun size={18} /> : <Moon size={18} />}
           </button>
         </div>
       </nav>

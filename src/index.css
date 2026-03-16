@@ -16,10 +16,47 @@
   --font-sport: 'Barlow Condensed', 'Inter', sans-serif;
 }
 
+[data-theme="light"] {
+  --bg-main: #f0f0f5;
+  --bg-card: #e2e4ec;
+  --bg-card-hover: #d5d8e4;
+
+  --text-primary: #0c0d12;
+  --text-secondary: #4a4f62;
+  --text-muted: #8b92a5;
+
+  --border-subtle: rgba(0, 0, 0, 0.08);
+}
+
+[data-theme="light"] body {
+  background-image:
+    repeating-linear-gradient(
+      -45deg,
+      rgba(0, 0, 0, 0.02),
+      rgba(0, 0, 0, 0.02) 1px,
+      transparent 1px,
+      transparent 10px
+    ),
+    radial-gradient(ellipse at 50% -20%, rgba(0, 0, 0, 0.03) 0%, transparent 70%);
+}
+
+[data-theme="light"] .glass-card {
+  background: linear-gradient(
+    135deg,
+    rgba(255, 255, 255, 0.6) 0%,
+    rgba(255, 255, 255, 0.3) 100%
+  );
+  border: 1px solid rgba(0, 0, 0, 0.06);
+  border-top: 1px solid rgba(255, 255, 255, 0.9);
+  border-left: 1px solid rgba(255, 255, 255, 0.7);
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.12);
+}
+
 * {
   box-sizing: border-box;
   margin: 0;
   padding: 0;
+  transition: background-color 0.3s ease, color 0.3s ease, border-color 0.3s ease;
 }
 
 body {
